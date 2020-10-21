@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.rlbpc.catalogo.entities.Category;
 import com.rlbpc.catalogo.repositories.CategoryRepository;
@@ -22,6 +23,11 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository repository;
 	
+	
+	//A anotação Transactional garante que o método vai ser executado com uma transação do banco de dados e o método readOnly impede que o banco de dados seja travado para uma operação que é apenas de leitura
+	//deve-se colocar no perfil de execução application-properties a linha spring.jpa.open-in-view=false para garantir que todas as transações com o banco de dados fiquem na camada de serviço sem chegar a camada de controladores REST
+	
+	@Transactional(readOnly = true)
 	public List<Category> findAll(){
 		return repository.findAll();
 		

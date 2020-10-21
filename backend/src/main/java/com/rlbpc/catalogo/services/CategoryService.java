@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rlbpc.catalogo.dto.CategoryDTO;
 import com.rlbpc.catalogo.entities.Category;
 import com.rlbpc.catalogo.repositories.CategoryRepository;
+import com.rlbpc.catalogo.services.exceptions.EntityNotFoundException;
 
 
 /*Anotação para registro da classe como componente de injeção de dependência automatizado do Spring
@@ -40,7 +41,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
-		Category entity = obj.get();
+		Category entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found - Entidade não encontrada."));
 		return new CategoryDTO(entity);
 	}
 }

@@ -35,7 +35,7 @@ public class Category implements Serializable{
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode() {  //método de comparação rápida
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -43,7 +43,7 @@ public class Category implements Serializable{
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { //método de comparação lenta 
 		if (this == obj)
 			return true;
 		if (obj == null)

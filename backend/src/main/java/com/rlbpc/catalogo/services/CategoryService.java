@@ -1,11 +1,13 @@
 package com.rlbpc.catalogo.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.rlbpc.catalogo.dto.CategoryDTO;
 import com.rlbpc.catalogo.entities.Category;
 import com.rlbpc.catalogo.repositories.CategoryRepository;
 
@@ -28,8 +30,9 @@ public class CategoryService {
 	//deve-se colocar no perfil de execução application-properties a linha spring.jpa.open-in-view=false para garantir que todas as transações com o banco de dados fiquem na camada de serviço sem chegar a camada de controladores REST
 	
 	@Transactional(readOnly = true)
-	public List<Category> findAll(){
-		return repository.findAll();
-		
+	public List<CategoryDTO> findAll(){
+		//implementação usando funções de alta ordem		
+		List<Category> list = repository.findAll(); 
+		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
 	}
 }

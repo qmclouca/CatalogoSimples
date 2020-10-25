@@ -54,3 +54,14 @@ INSERT INTO tb_product_category (product_id, category_id) VALUES (22, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (23, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (24, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (25, 3);
+
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Pedro Gabriel Aparício', 90255734603, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Natália Marina Isabella Pires', 66414031305, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Cauê Jorge da Mota', 88173068607, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Luiz Erick Vitor Ferreira', 26962506007, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Renata Isabelle Alícia Pires', 81504712358, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Stefany Brenda Pereira', 82303297109, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Anderson Igor Emanuel Oliveira', 24147795943, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Bento Anderson Igor Novaes', 25600413670, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Bruna Giovana Rezende', 60005173949, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birthDate, children) VALUES ('Valentina Yasmin da Luz', 04231816107, 7000, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 3);

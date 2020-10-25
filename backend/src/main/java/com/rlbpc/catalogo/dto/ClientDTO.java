@@ -37,7 +37,7 @@ private static final long serialVersionUID = 1L;
 		this.birthDate = entity.getBirthDate();
 		this.children = entity.getChildren();
 		}
-
+	
 	public Long getId() {
 		return id;
 	}

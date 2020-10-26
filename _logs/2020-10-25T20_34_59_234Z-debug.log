@@ -1,0 +1,34 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'D:\\Program Files\\NodeJS\\node.exe',
+1 verbose cli   'D:\\Program Files\\NodeJS\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'create-react-app@latest',
+1 verbose cli   '--global',
+1 verbose cli   '--prefix',
+1 verbose cli   'D:\\Rodolfo',
+1 verbose cli   'Bortoluzzi\\BootCampDevSuperior\\CatalogoSimples\\dscatalog\\_npx\\16404',
+1 verbose cli   '--loglevel',
+1 verbose cli   'error',
+1 verbose cli   '--json'
+1 verbose cli ]
+2 info using npm@6.14.8
+3 info using node@v12.19.0
+4 verbose npm-session db5e8a50c6423f0e
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData error for file:Bortoluzzi\BootCampDevSuperior\CatalogoSimples\dscatalog\_npx\16404 Could not install from "Bortoluzzi\BootCampDevSuperior\CatalogoSimples\dscatalog\_npx\16404" as it does not contain a package.json file.
+8 http fetch GET 200 https://registry.npmjs.org/create-react-app 365ms
+9 http fetch GET 200 https://registry.npmjs.org/create-react-app/-/create-react-app-4.0.0.tgz 119ms
+10 silly pacote tag manifest for create-react-app@latest fetched in 516ms
+11 timing stage:rollbackFailedOptional Completed in 2ms
+12 timing stage:runTopLevelLifecycles Completed in 528ms
+13 verbose stack Error: ENOENT: no such file or directory, open 'D:\Rodolfo Bortoluzzi\BootCampDevSuperior\CatalogoSimples\dscatalog\Bortoluzzi\BootCampDevSuperior\CatalogoSimples\dscatalog\_npx\16404\package.json'
+14 verbose cwd D:\Rodolfo Bortoluzzi\BootCampDevSuperior\CatalogoSimples\dscatalog
+15 verbose Windows_NT 10.0.18363
+16 verbose argv "D:\\Program Files\\NodeJS\\node.exe" "D:\\Program Files\\NodeJS\\node_modules\\npm\\bin\\npm-cli.js" "install" "create-react-app@latest" "--global" "--prefix" "D:\\Rodolfo" "Bortoluzzi\\BootCampDevSuperior\\CatalogoSimples\\dscatalog\\_npx\\16404" "--loglevel" "error" "--json"
+17 verbose node v12.19.0
+18 verbose npm  v6.14.8
+19 error code ENOLOCAL
+20 error Could not install from "Bortoluzzi\BootCampDevSuperior\CatalogoSimples\dscatalog\_npx\16404" as it does not contain a package.json file.
+21 verbose exit [ 1, true ]

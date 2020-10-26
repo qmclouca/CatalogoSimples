@@ -1,0 +1,3 @@
+netstat -ano | grep ":3000"
+
+localize PID on taskmanager PID column and kill Node.js process

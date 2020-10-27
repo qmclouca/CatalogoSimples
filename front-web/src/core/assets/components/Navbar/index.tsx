@@ -1,29 +1,30 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './styles.scss';
 
 const Navbar = () => (
     <nav className="row bg-primary main-nav">
         <div className="col-2">
-            <a href="LINK" className = "nav-logo-text">
+            <Link to="/" className = "nav-logo-text">
                 <h4>DS catalog</h4>
-            </a>
+            </Link>
         </div>
         <div className="col-6 offset-2">
             <ul className="main-menu">
                 <li>
-                    <a href="link" className ="active">
+                    <NavLink to="/" activeClassName ="active" exact>
                         HOME
-                    </a>
+                    </NavLink>
                 </li>
                 <li>
-                    <a href="link">
-                    CATÁLOGO
-                    </a>
+                <NavLink to="/Catalog" activeClassName ="active">
+                       CATÁLOGO
+                    </NavLink>
                 </li>
                 <li>
-                    <a href="link">
+                <NavLink to="/Admin" activeClassName ="active">
                         ADMIN
-                    </a>
+                    </NavLink>
                 </li>
             </ul>
         </div>

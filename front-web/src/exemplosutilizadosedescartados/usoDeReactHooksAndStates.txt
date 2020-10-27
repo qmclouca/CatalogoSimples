@@ -1,0 +1,40 @@
+import React, {useState, useEffect} from 'react';
+{/*entre as chaves abaixo ficam os react hooks, que são funções do React*/}
+{/* () => cria uma arrow function */}
+const App = () => {
+    const [counter, setCounter] = useState(0);
+    
+{/*O useEffect é uma função que recebe dois argumentos,
+o primeiro é outra função, o segundo é um array de dependências 
+fazer a chamada da API dentro do useEffect
+se ficar com [] o componente será renderizado apenas na inicialização
+se ficar com [counter] o componente será renderizado sempre que o conter mudar*/}
+    useEffect(() => {
+        console.log('o contador mudou de valor')}, []);
+   
+
+    return (
+      <div className = "container mt-5">
+        <button 
+            className = "btn btn-primary mr-5"
+            onClick = {() => setCounter(counter+1)}
+            >
+        +
+        </button>
+        <span>
+          {counter}
+        </span>
+        <button 
+            className = "btn btn-primary ml-5"
+            onClick = {() => setCounter(counter-1)}
+            >
+        -
+        </button>
+        {/* teste do botão - exercício
+        {counter > 5 && <h1>O valor é maior que 5</h1>}*/}
+
+      </div>  
+    );
+}
+
+export default App;

@@ -1,3 +1,5 @@
 {
-    "color-highlight.matchWords": true
+    "color-highlight.matchWords": true,
+    "eslint.alwaysShowStatus": true,
+    "remote.WSL.debug": true
 }

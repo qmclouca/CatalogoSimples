@@ -2,6 +2,7 @@
   "name": "front-web",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -11,6 +12,7 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.6",
+    "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "node": "^15.0.1",
     "node-sass": "^4.14.1",

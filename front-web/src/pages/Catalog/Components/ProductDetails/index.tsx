@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from '../../../../core/assets/images/arrow.svg';

@@ -1,21 +1,30 @@
 import React from 'react';
 import {ReactComponent as ArrowIcon} from 'core/assets/images/arrow.svg'
 import './styles.scss';
+import { generateList } from 'core/utils/list';
 
-const Pagination = () => {
+type Props = {
+    totalPages: number;
+    activePage: number;
+    onChange: (item: number) => void;
+}
+
+const Pagination = ({totalPages, activePage, onChange}: Props) => {
+    const items = generateList(totalPages);
+
     return (
         <div className = "pagination-container">
             <ArrowIcon className = "pagination-previous" />
-            <div className = "pagination-item active">
-                1
-            </div>
-            <div className = "pagination-item">
-                2
-            </div>
-            <div className = "pagination-item">
-                3
-            </div>
-            <ArrowIcon className = "pagination-next"/>
+            {items.map(item => (
+                <div
+                    key = {item}
+                    className = {`pagination-item ${item === activePage ? 'active' : ''}`}
+                    onClick = {() => onChange(item)}
+                >
+                    {item + 1}
+                </div>        
+            ))}
+                <ArrowIcon className = "pagination-next"/>
         </div>
     )
 

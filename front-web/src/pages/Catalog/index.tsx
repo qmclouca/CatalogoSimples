@@ -20,11 +20,11 @@ const Catalog = () => {
     o fetch foi substituido por axios para acrescenter funcionalidades*/
     const [productsResponse, setProductsResponse] = useState<ProductsResponse>();
     const [isLoading, setIsLoading] = useState(false);
-    
+    const [activePage, setActivePage] = useState(0);
 
     useEffect(() => {
         const params = {
-            page: 0,
+            page: activePage,
             linesPerPage: 12
         }
         //iniciar o loader
@@ -35,7 +35,7 @@ const Catalog = () => {
             //finalizar o loader
             setIsLoading(false);
         })
-    }, []);
+    }, [activePage]);
     return (
         <div className = "catalog-container">
             <h1 className = "catalog-title">
@@ -50,7 +50,14 @@ const Catalog = () => {
                         ))
                     )}              
             </div>
-            <Pagination />
+            {productsResponse && (
+                <Pagination 
+                    totalPages = {productsResponse?.totalPages} 
+                    activePage = {activePage}
+                    onChange = {page => setActivePage(page)}
+                />
+            
+            )}
         </div>
     );
 }

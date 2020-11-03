@@ -5,6 +5,7 @@ import './styles.scss';
 import { makeRequest } from 'core/utils/request';
 import { ProductsResponse } from 'core/types/Products';
 import ProductCardLoader from './Components/Loaders/ProductCardLoader';
+import Pagination from 'core/components/Pagination';
 
 const Catalog = () => {
     /*quando o componente iniciar, buscar a lista de produtos
@@ -49,6 +50,7 @@ const Catalog = () => {
                         ))
                     )}              
             </div>
+            <Pagination />
         </div>
     );
 }

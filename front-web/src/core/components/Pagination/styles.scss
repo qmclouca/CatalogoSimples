@@ -37,3 +37,12 @@
     color: #407BFF;
     cursor: pointer;
 }
+
+.page-active {
+    cursor: pointer;
+    color: #407BFF;
+}
+.page-inactive {
+    color: #E1E1E1;
+    pointer-events: none;
+}

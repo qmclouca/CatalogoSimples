@@ -10,7 +10,7 @@ type Props = {
 const BaseForm = ({title, children}: Props) => {
     const history = useHistory();
     const handleCancel = () => {
-        history.push('../');
+        history.push('/admin/products/');
     }
     return (
         <div className="admin-base-form card-base">

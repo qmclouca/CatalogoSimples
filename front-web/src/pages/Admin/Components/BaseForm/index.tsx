@@ -1,13 +1,34 @@
 import React from 'react';
 import './styles.scss';
+import { useHistory } from 'react-router-dom';
 
+type Props = {
+    title: string;
+    children: React.ReactNode;
+}
 
-const BaseForm = () => {
+const BaseForm = ({title, children}: Props) => {
+    const history = useHistory();
+    const handleCancel = () => {
+        history.push('../');
+    }
     return (
         <div className="admin-base-form card-base">
             <h1 className="base-form-title">
-                CADASTRAR PRODUTO
+                {title}
             </h1>
+            {children}
+            <div className = "base-form-actions">
+                <button 
+                    className = "btn-outline-danger border-radius-10 mr-3"
+                    onClick={handleCancel}
+                    >
+                    CANCELAR
+                </button>
+                <button className = "btn-primary border-radius-10">
+                    CADASTRAR
+                </button>
+            </div>
         </div>
     )
 }

@@ -9,11 +9,13 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rlbpc.catalogo.dto.RoleDTO;
 import com.rlbpc.catalogo.dto.UserDTO;
+import com.rlbpc.catalogo.dto.UserInsertDTO;
 import com.rlbpc.catalogo.entities.Role;
 import com.rlbpc.catalogo.entities.User;
 import com.rlbpc.catalogo.repositories.RoleRepository;
@@ -27,6 +29,9 @@ as anotações possíveis são @Component componente genérico, @Repository se f
 
 @Service
 public class UserService {
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	
 	//dependência variável para acessar o repository e chamar do bando de dados as categorias
@@ -55,9 +60,10 @@ public class UserService {
 	}
 
 	@Transactional
-	public UserDTO insert(UserDTO dto) {
+	public UserDTO insert(UserInsertDTO dto) {
 		User entity = new User();
 		copyDtoToEntity(dto,entity);
+		entity.setPassword(passwordEncoder.encode(dto.getPassword()));
 		entity = repository.save(entity);
 		return new UserDTO(entity);
 	}

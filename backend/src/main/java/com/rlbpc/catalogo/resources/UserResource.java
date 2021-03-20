@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.rlbpc.catalogo.dto.UserDTO;
 import com.rlbpc.catalogo.dto.UserInsertDTO;
+import com.rlbpc.catalogo.dto.UserUpdateDTO;
 import com.rlbpc.catalogo.services.UserService;
 
 //Declaração da categoria como sendo o controlador REST
@@ -62,9 +63,9 @@ public class UserResource {
 	}
 	
 	@PutMapping(value ="/{id}")
-	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserDTO dto){
-		dto = service.update(id, dto);
-		return ResponseEntity.ok().body(dto);
+	public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO dto){
+		UserDTO newDto = service.update(id, dto);
+		return ResponseEntity.ok().body(newDto);
 	}
 	
 	@DeleteMapping(value ="/{id}")

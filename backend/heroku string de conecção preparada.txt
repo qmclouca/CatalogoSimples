@@ -1,0 +1,22 @@
+postgres://
+
+qkdirhhvafmdxi   - Usuário
+
+:
+
+a5bbd7ad4decf402ad58285fcbbb2fdb5add9b6b5e4f4c1a8d73e5fbbdf33c89 - Senha
+
+@
+
+ec2-54-211-176-156.compute-1.amazonaws.com  - link de conecção
+
+:
+
+5432  - porta
+
+/
+
+dd55tcqskt5e8t   DB Restriction - nome da base
+
+
+postgres://qkdirhhvafmdxi:a5bbd7ad4decf402ad58285fcbbb2fdb5add9b6b5e4f4c1a8d73e5fbbdf33c89@ec2-54-211-176-156.compute-1.amazonaws.com:5432/dd55tcqskt5e8t

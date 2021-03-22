@@ -122,7 +122,7 @@ public class UserService implements UserDetailsService {
 		} 
 		Logger.info("User found: " + username);
 		// TODO Auto-generated method stub
-		return null;
+		return user;
 	}
 
 }

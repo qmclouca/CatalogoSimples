@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ButtonIcon from 'core/components/ButtonIcon';
@@ -11,33 +11,44 @@ type FormData = {
     password: string;
 }
 
-
-
 const Login = () => {
     const { register, handleSubmit } = useForm<FormData>();
+    //cria um estado has Error
+    const [hasError, setHasError] = useState(false);
 
     const onSubmit = (data:FormData) => {
-        console.log(data);
-        makeLogin(data);
+        makeLogin(data)
+            .then(response => {
+                setHasError(false);
+            })
+            .catch(() => {
+                setHasError(true);
+            });
         //chamar a API de autenticação
     }
 
     return(
         <AuthCard title="login">
+            {hasError && (
+                <div className="alert alert-danger mt-5">
+                    Usuário ou senha inválidos!
+                </div>
+            )}
+           
             <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
                <input 
                  type="email" 
                  className="form-control input-base margin-bottom-30"
                  placeholder="Email"
                  name="username"
-                 ref={register}
+                 ref={register({ required : true })}
                 />
                 <input 
                  type="password" 
                  className="form-control input-base"
                  placeholder="Senha"
                  name="password"
-                 ref={register}
+                 ref={register({ required : true })}
                 />
                 <Link to="/admin/auth/recover" className="login-link-recover">Recuperar a senha!</Link>
                 <div className="login-submit">

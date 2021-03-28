@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BaseForm from '../../BaseForm';
 import './styles.scss';
-import { makeRequest } from './../../../../../core/utils/request';
+import { makePrivateRequest } from './../../../../../core/utils/request';
 
 
 type FormState = {
@@ -36,7 +36,7 @@ const Form = () => {
             imgUrl: 'https://static.netshoes.com.br/produtos/console-playstation-5-ps5-sony/14/D32-2445-014/D32-2445-014_zoom1.jpg?ts=1602777382&ims=544x',
             categories: [{id : formData.category}]
         }
-       makeRequest({url:'/products', method:'POST', data:payload})
+       makePrivateRequest({url:'/products', method:'POST', data:payload})
         .then(() => {
             setFormData({name: '', category: '', price: '', description: ''});
         });

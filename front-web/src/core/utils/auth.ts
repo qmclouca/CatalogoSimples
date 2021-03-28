@@ -13,3 +13,12 @@ type LoginResponse = {
 export const saveSessionData = (loginResponse: LoginResponse) => {
     localStorage.setItem('authData', JSON.stringify(loginResponse));
 }
+
+export const getSessionData = () => {
+
+    //?? operador de coalescência nula ou undefined retorna o da direita se o da esqueda é null ou undefined
+    const sessionData = localStorage.getItem('authData') || '{}';
+    const parsedSessionData = JSON.parse(sessionData);
+
+    return parsedSessionData as LoginResponse;
+}

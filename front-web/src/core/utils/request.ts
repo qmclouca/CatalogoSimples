@@ -35,14 +35,18 @@ export const makeLogin = (loginData: LoginData) => {
         //btoa : byte to asc para transforma para base32
         Authorization: `Basic ${window.btoa(token)}`,
         'Content-Type': 'application/x-www-form-urlencoded',
-
     }
 
     // '/oauth/token'
     // modelo: username=maria@gmail.com&password=123456&grant_type=password
     // usar a biblioteca qs para montar as queries (instalar yarn add qs)
     // intalar também os tipos do da biblioteca qs com o comando yarn add @types/qs
+    
     const payload = qs.stringify({ ...loginData, grant_type: 'password'});
+    
+    // pode-se evitar a utilização da biblioteca qs fazendo o payload
+    // como: const payload = `username=${loginData.username}&password=${loginData.password}&grant_type=password`;
+
 
     return makeRequest({url: '/oauth/token', data: payload, method: 'POST', headers});
 }

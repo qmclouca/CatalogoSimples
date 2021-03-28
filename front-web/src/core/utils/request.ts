@@ -14,15 +14,17 @@ type LoginData = {
     username: string;
     password: string;
 }
-
-const BASE_URL = 'http://localhost:3000';
+//O CORS foi liberado no backend então pode tirar o http://localhost:3000 e colocar o 8080, no arquivo 
+//package.jason foi tirada a linha proxy: http://localhost:8080
+const BASE_URL = 'http://localhost:8080';
 
 export const makeRequest = ({method = 'GET', url, data, params, headers }: RequestParams) => {
     return axios({
         method,
         url: `${BASE_URL}${url}`,
         data,
-        params
+        params,
+        headers
     });
 }
 
@@ -30,7 +32,7 @@ export const makeLogin = (loginData: LoginData) => {
     const token = `${CLIENT_ID}:${CLIENT_SECRET}`;
 
     const headers = {
-        //btoa : bite to asc para transforma para base32
+        //btoa : byte to asc para transforma para base32
         Authorization: `Basic ${window.btoa(token)}`,
         'Content-Type': 'application/x-www-form-urlencoded',
 

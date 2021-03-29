@@ -1,6 +1,8 @@
 import axios, { Method } from 'axios';
 import qs from 'qs';
 import { CLIENT_ID, CLIENT_SECRET, getSessionData } from './auth';
+import history from './history';
+
 
 type RequestParams = {
     method?: Method;
@@ -17,6 +19,16 @@ type LoginData = {
 //O CORS foi liberado no backend então pode tirar o http://localhost:3000 e colocar o 8080, no arquivo 
 //package.jason foi tirada a linha proxy: http://localhost:8080
 const BASE_URL = 'http://localhost:8080';
+
+//interceptar requisições não autorizadas
+axios.interceptors.response.use(function(response) {
+    return response;
+}, function (error) { //qualquer status fora do código 2XX
+    if (error.response.status === 401 || error.response.status === 400) {
+        history.push('/admin/auth/login');
+    }
+    return Promise.reject(error);
+});
 
 export const makeRequest = ({method = 'GET', url, data, params, headers }: RequestParams) => {
     return axios({

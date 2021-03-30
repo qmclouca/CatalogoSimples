@@ -1,7 +1,6 @@
 import axios, { Method } from 'axios';
 import qs from 'qs';
-import { CLIENT_ID, CLIENT_SECRET, getSessionData } from './auth';
-import history from './history';
+import { CLIENT_ID, CLIENT_SECRET, getSessionData, logout } from './auth';
 
 
 type RequestParams = {
@@ -25,7 +24,7 @@ axios.interceptors.response.use(function(response) {
     return response;
 }, function (error) { //qualquer status fora do código 2XX
     if (error.response.status === 401 || error.response.status === 400) {
-        history.push('/admin/auth/login');
+        logout();
     }
     return Promise.reject(error);
 });

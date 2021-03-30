@@ -3,6 +3,7 @@
     color: #FFF;
     align-items: center;
     padding-left: 40px;
+    padding-right: 40px;
     margin-left: 0px;
     margin-right: 0px;
 
@@ -14,22 +15,25 @@
 
 .main-menu {
     display: flex;
-    font-size: 18px;
-    width: 380px;
-    justify-content: space-between;
+    justify-content: center;
 
-    a {
-        font-style: normal;
-       
-        color: rgba(255, 255, 255, 0.5);
-        &.active {
-            font-weight: bold;
-            color: #FFF;
-        }
-
-        &:hover {
-            color: #FFF;
-        }
-    }
+    li:nth-child(2) {
+       margin-right: 85px;
+       margin-left: 85px;
+    }    
 }
 
+.nav-link {
+    font-style: normal;       
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    
+    &.active {
+        font-weight: bold;
+        color: #FFF;
+    }
+
+    &:hover {
+        color: #FFF;
+    }
+}

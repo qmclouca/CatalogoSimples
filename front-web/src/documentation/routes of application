@@ -23,6 +23,6 @@
 /admin/users/:categoryId -> editar usuário
 
 ## autenticação
-/admin/auth/login -> login de usuário
-/admin/auth/register -> registro de usuário
-/admin/auth/recover -> recuperção de senha
+/auth/login -> login de usuário
+/auth/register -> registro de usuário
+/auth/recover -> recuperção de senha

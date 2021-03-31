@@ -7,7 +7,7 @@ import './styles.scss';
 import { makeLogin } from 'core/utils/request';
 import { saveSessionData } from 'core/utils/auth';
 
-type FormData = {
+type FormState = {
     username: string;
     password: string;
 }
@@ -17,7 +17,7 @@ type LocationState = {
 }
 
 const Login = () => {
-    const { register, handleSubmit, errors } = useForm<FormData>();
+    const { register, handleSubmit, errors } = useForm<FormState>();
     //cria um estado has Error
     const [hasError, setHasError] = useState(false);
     const history = useHistory();
@@ -25,7 +25,7 @@ const Login = () => {
 
     const { from } = location.state || { from: { pathname: "/admin" } };
 
-    const onSubmit = (data:FormData) => {
+    const onSubmit = (data:FormState) => {
         makeLogin(data)
             .then(response => {
                 setHasError(false);

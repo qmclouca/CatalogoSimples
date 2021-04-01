@@ -1,5 +1,7 @@
 package com.rlbpc.catalogo.services;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
@@ -42,9 +44,11 @@ public class ProductService {
 	//deve-se colocar no perfil de execução application-properties a linha spring.jpa.open-in-view=false para garantir que todas as transações com o banco de dados fiquem na camada de serviço sem chegar a camada de controladores REST
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAllPaged(PageRequest pageRequest){
-		Page<Product> list = repository.findAll(pageRequest); 
-		return list.map(x -> new ProductDTO(x));
+	public Page<ProductDTO> findAllPaged(Long categoryId, String name, PageRequest pageRequest){
+		List<Category> categories = (categoryId == 0) ? null : Arrays.asList(categoryRepository.getOne(categoryId)); 
+		Page<Product> page = repository.find(categories, name, pageRequest); 
+		repository.find(page.toList());
+		return page.map(x -> new ProductDTO(x, x.getCategories()));
 	}
 
 	@Transactional(readOnly = true)

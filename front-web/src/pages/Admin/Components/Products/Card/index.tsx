@@ -25,11 +25,15 @@ const Card = ({product}:Props) => {
                     </h3>
                     <ProductPrice price={product.price}/> 
                     <div>
-                        {product.categories.map(category => (
-                            <span className ="badge badge-pill badge-secondary mr-2">
-                                {category}
-                            </span>
-                        ))}
+                        <span className ="badge badge-pill badge-secondary mr-2">
+                            Categoria 1
+                        </span>
+                        <span className ="badge badge-pill badge-secondary mr-2">
+                            Categoria 2
+                        </span>
+                        <span className ="badge badge-pill badge-secondary mr-2">
+                            Categoria 3
+                        </span>
                     </div>
                 </div>
                 <div className = "col-3 pt-3 pr-5">

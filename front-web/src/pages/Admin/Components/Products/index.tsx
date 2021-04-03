@@ -12,16 +12,12 @@ const Products = () => {
                 <Route exact path="/admin/products">
                         <List />
                     </Route>
-                    <Route exact path="/admin/products/create">
-                        <Form />
-                    </Route>
                     <Route path="/admin/products/:productId" >
-                        <h1>Editar um produto</h1>
+                        <Form />
                     </Route>
                 </Switch>
           </BrowserRouter>
       </div>
-      
     );
 }
 

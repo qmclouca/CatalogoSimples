@@ -1,9 +1,10 @@
 import Pagination from 'core/components/Pagination';
 import { ProductsResponse } from 'core/types/Products';
-import { makeRequest } from 'core/utils/request';
-import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import { makeRequest, makePrivateRequest } from 'core/utils/request';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 import Card from '../Card';
+import { toast } from 'react-toastify';
 
 const List = () => {
     const [productsResponse, setProductsResponse] = useState<ProductsResponse>();
@@ -11,7 +12,7 @@ const List = () => {
     const [activePage, setActivePage] = useState(0);
     const history = useHistory();
 
-    useEffect(() => {
+    const getProducts = useCallback(() => {
         const params = {
             page: activePage,
             linesPerPage: 4,
@@ -19,33 +20,51 @@ const List = () => {
             orderBy: 'id'
         }
         //iniciar o loader
-    setIsLoading(true);
-    makeRequest({url: '/products', params})
-        .then(response => setProductsResponse(response.data))
-        .finally(()=>{
-            //finalizar o loader
-            setIsLoading(false);
-        })
+        setIsLoading(true);
+        makeRequest({ url: '/products', params })
+            .then(response => setProductsResponse(response.data))
+            .finally(() => {
+                //finalizar o loader
+                setIsLoading(false);
+            })
     }, [activePage]);
+
+    useEffect(() => {
+        getProducts();
+    }, [getProducts]);
 
     const handleCreate = () => {
         history.push('/admin/products/create');
     }
 
+    const onRemove = (productId: number) => {
+        const confirm = window.confirm('Deseja realmente excluir este produto?');
+        if (confirm) {
+            makePrivateRequest({ url: `/products/${productId}`, method: 'DELETE' })
+                .then(() => {
+                    toast.info('Produto excluído com sucesso!');
+                    getProducts();
+                })
+                .catch(() => {
+                    toast.error('Erro ao excluir produto!');
+                })
+        }
+    }
+
     return (
-        <div className = "admin-products-list">
-            <button className ="btn btn-primary btn-lg" onClick={handleCreate}> 
+        <div className="admin-products-list">
+            <button className="btn btn-primary btn-lg" onClick={handleCreate}>
                 ADICIONAR
             </button>
             <div className="admin-list-container">
                 {productsResponse?.content.map(product => (
-                <Card product={product} key = {product.id}/>
+                    <Card product={product} key={product.id} onRemove={onRemove} />
                 ))}
                 {productsResponse && (
-                    <Pagination 
-                        totalPages = {productsResponse?.totalPages} 
-                        activePage = {activePage}
-                        onChange = {page => setActivePage(page)}
+                    <Pagination
+                        totalPages={productsResponse?.totalPages}
+                        activePage={activePage}
+                        onChange={page => setActivePage(page)}
                     />
                 )}
             </div>

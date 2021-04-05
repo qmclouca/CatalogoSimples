@@ -6,6 +6,7 @@ import { makeRequest } from 'core/utils/request';
 import { ProductsResponse } from 'core/types/Products';
 import ProductCardLoader from './Components/Loaders/ProductCardLoader';
 import Pagination from 'core/components/Pagination';
+import ProductFilters from 'core/components/ProductFilters';
 
 const Catalog = () => {
     /*quando o componente iniciar, buscar a lista de produtos
@@ -38,9 +39,13 @@ const Catalog = () => {
     }, [activePage]);
     return (
         <div className = "catalog-container">
-            <h1 className = "catalog-title">
-                Catálogo de produtos
-            </h1>
+            <div className="d-flex justify-content-between">
+                <h1 className = "catalog-title">
+                    Catálogo de produtos
+                </h1>
+                <ProductFilters/>
+            </div>
+            
             <div className = "catalog-products">
                     {isLoading ? <ProductCardLoader /> : (
                         productsResponse?.content.map(product => (

@@ -1,0 +1,20 @@
+.product-filters-container {    
+    width: 70%;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.input-search {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E1E1E1;
+    input {
+        border: none;
+        &::placeholder {
+            color: #9E9E9E;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}

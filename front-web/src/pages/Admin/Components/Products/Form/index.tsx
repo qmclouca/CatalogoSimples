@@ -102,9 +102,11 @@ const Form = () => {
                         getOptionLabel = {(option: Category) => option.name}
                         getOptionValue = {(option: Category) => String(option.id)}
                         classNamePrefix = "categories-select"
+                        inputId = "categories"
                         placeholder = "Categorias"
                         isMulti    
-                    />{errors.categories && (
+                    />
+                    {errors.categories && (
                         <div className="invalid-feedback d-block">
                             Campo obrigatório
                         </div> 

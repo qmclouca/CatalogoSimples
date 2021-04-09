@@ -7,6 +7,7 @@ import Select from 'react-select';
 import { makePrivateRequest, makeRequest } from 'core/utils/request';
 import { useHistory, useParams } from 'react-router-dom';
 import { Category } from 'core/types/Products';
+import ImageUpload from '../ImageUpload';
 
 type FormState = {
     name: string;
@@ -129,18 +130,7 @@ const Form = () => {
                     </div>
 
                     <div className="margin-bottom-30">
-                        <input 
-                          ref={register({ required: "Campo obrigatório"})}
-                          name="imgUrl"
-                          type="text" 
-                          className="form-control input-base"
-                          placeholder="Imagem do produto"
-                        />
-                        {errors.imgUrl && (
-                            <div className="invalid-feedback d-block">
-                                {errors.imgUrl.message}
-                            </div> 
-                        )}
+                       <ImageUpload/>
                     </div>
                 </div>
 

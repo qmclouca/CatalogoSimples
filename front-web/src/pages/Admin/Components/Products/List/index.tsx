@@ -1,25 +1,27 @@
 import Pagination from 'core/components/Pagination';
-import { ProductsResponse } from 'core/types/Products';
+import { Category, ProductsResponse } from 'core/types/Products';
 import { makeRequest, makePrivateRequest } from 'core/utils/request';
 import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import Card from '../Card';
 import { toast } from 'react-toastify';
 import CardLoader from './../Loaders/ProductCardLoaders';
-import ProductFilters, { FilterForm } from 'core/components/ProductFilters';
+import ProductFilters from 'core/components/ProductFilters';
 
 const List = () => {
     const [productsResponse, setProductsResponse] = useState<ProductsResponse>();
     const [isLoading, setIsLoading] = useState(false);
     const [activePage, setActivePage] = useState(0);
-    const history = useHistory();
+    const history = useHistory(); 
+    const [name, setName] = useState('');
+    const [category, setCategory] = useState<Category>();
 
-    const getProducts = useCallback((filter?: FilterForm) => {
+    const getProducts = useCallback(() => {
         const params = {
             page: activePage,
             linesPerPage: 4,
-            name: filter?.name,
-            categoryId: filter?.categoryId,
+            name: name,
+            categoryId: category?.id,
             direction: 'DESC',
             orderBy: 'id'
         }
@@ -31,11 +33,28 @@ const List = () => {
                 //finalizar o loader
                 setIsLoading(false);
             })
-    }, [activePage]);
+    }, [activePage, name, category]);
 
     useEffect(() => {
         getProducts();
     }, [getProducts]);
+
+    const handleChangeName = (name: string) => {
+        setActivePage(0);
+        setName(name);        
+    }
+
+    const handleChangeCategory = (category: Category) => {
+        setActivePage(0);
+        setCategory(category);        
+    }
+
+    const clearFilters = () => {
+        setActivePage(0);
+        setCategory(undefined);
+        setName('');        
+    }
+
 
     const handleCreate = () => {
         history.push('/admin/products/create');
@@ -61,7 +80,13 @@ const List = () => {
                 <button className="btn btn-primary btn-lg" onClick={handleCreate}>
                     ADICIONAR
                 </button>
-                <ProductFilters onSearch={filter => getProducts(filter)} />
+                <ProductFilters 
+                 name={name}
+                 category={category}
+                 handleChangeCategory={handleChangeCategory}
+                 handleChangeName={handleChangeName}
+                 clearFilters={clearFilters}                
+                 />
             </div>
             <div className="admin-list-container">
                 {isLoading ? <CardLoader /> : (

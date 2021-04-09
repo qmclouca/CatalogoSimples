@@ -5,7 +5,8 @@ import Products from './Components/Products';
 import './styles.scss';
 import PrivateRoute from './../../core/components/Routes/PrivateRoute';
 
-const Admin = () => (
+const Admin = () => {
+    return (
     <div className = "admin-container">
        <Navbar />
         <div className = "admin-content">
@@ -22,5 +23,5 @@ const Admin = () => (
             </Switch>
         </div>
     </div>
-);
+    )}
 export default Admin;

@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Card from '../Card';
 import { toast } from 'react-toastify';
 import CardLoader from './../Loaders/ProductCardLoaders';
+import ProductFilters, { FilterForm } from 'core/components/ProductFilters';
 
 const List = () => {
     const [productsResponse, setProductsResponse] = useState<ProductsResponse>();
@@ -13,10 +14,12 @@ const List = () => {
     const [activePage, setActivePage] = useState(0);
     const history = useHistory();
 
-    const getProducts = useCallback(() => {
+    const getProducts = useCallback((filter?: FilterForm) => {
         const params = {
             page: activePage,
             linesPerPage: 4,
+            name: filter?.name,
+            categoryId: filter?.categoryId,
             direction: 'DESC',
             orderBy: 'id'
         }
@@ -54,11 +57,13 @@ const List = () => {
 
     return (
         <div className="admin-products-list">
-            <button className="btn btn-primary btn-lg" onClick={handleCreate}>
-                ADICIONAR
-            </button>
+            <div className="d-flex justify-content-between">
+                <button className="btn btn-primary btn-lg" onClick={handleCreate}>
+                    ADICIONAR
+                </button>
+                <ProductFilters onSearch={filter => getProducts(filter)} />
+            </div>
             <div className="admin-list-container">
-
                 {isLoading ? <CardLoader /> : (
                     productsResponse?.content.map(product => (
                         <Card product={product} key={product.id} onRemove={onRemove} />

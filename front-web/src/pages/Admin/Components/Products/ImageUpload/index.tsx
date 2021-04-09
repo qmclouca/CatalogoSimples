@@ -18,8 +18,14 @@ const ImageUpload = () => {
                     As imagens devem ser JPG ou PNG e não devem ultrapassar <strong>5 MB</strong>.
                 </small>
             </div>
-            <div className="col-6">
+            <div className="col-6 upload-placeholder">
                 <UploadPlaceholder/>
+                <div className="upload-progress-container">
+                    <div className="upload-progress">
+
+                    </div>
+
+                </div>
             </div>
            
         </div>

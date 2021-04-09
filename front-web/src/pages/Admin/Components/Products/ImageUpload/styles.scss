@@ -19,3 +19,20 @@
     letter-spacing: -0.015em;
     align-items:stretch;
 }
+.upload-placeholder{
+    .upload-progress-container{
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+        height: 10px;
+        background: #E1E1E1;
+        width: 175px;
+        border-radius: 10px; 
+    }
+    .upload-progress{
+        background: #407BFF;
+        border-radius: 10px; 
+        height: 10px;
+        width: 50%;
+    }
+}

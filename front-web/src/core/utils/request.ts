@@ -8,8 +8,8 @@ type LoginData = {
 }
 //O CORS foi liberado no backend então pode tirar o http://localhost:3000 e colocar o 8080, no arquivo 
 //package.jason foi tirada a linha proxy: http://localhost:8080
-//const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://endereço no heroku
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://rlbpc-dscatalog.herokuapp.com';
+//const BASE_URL = 'http://localhost:8080';
 
 //interceptar requisições não autorizadas
 axios.interceptors.response.use(function(response) {

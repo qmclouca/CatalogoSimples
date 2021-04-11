@@ -9,7 +9,7 @@ const ImageUpload = () => {
         const payload = new FormData();
         payload.append('file', selectedImage)
         makePrivateRequest({
-            url:'/products/image', 
+            url:'/products/images', 
             method: 'POST',
             data: payload
         })

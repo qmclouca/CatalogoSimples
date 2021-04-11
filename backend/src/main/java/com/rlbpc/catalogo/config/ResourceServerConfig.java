@@ -30,7 +30,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	private JwtTokenStore tokenStore;
 	
 	//Definição dos endpoints públicos
-	private static final String[] PUBLIC = {"/oauth/token","/h2-console/**"};
+	private static final String[] PUBLIC = {"/oauth/token","/h2-console/**", "/rlbpc-dscatalog.herokuapp.com/**"};
 	
 	//Definição dos endpoints operator e admin
 	private static final String[] OPERATOR_OR_ADMIN = {"/products/**","/categories/**"};

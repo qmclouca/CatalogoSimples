@@ -8,8 +8,9 @@ const ImageUpload = () => {
         //montar o form data
         const payload = new FormData();
         payload.append('file', selectedImage)
+        
         makePrivateRequest({
-            url:'/products/images', 
+            url:'/products/image', 
             method: 'POST',
             data: payload
         })
@@ -23,6 +24,7 @@ const ImageUpload = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedImage = event.target.files?.[0];
+        console.log(selectedImage);
        
         if (selectedImage) {
             //upload image

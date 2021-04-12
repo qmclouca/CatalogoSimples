@@ -1,5 +1,6 @@
 package com.rlbpc.catalogo.services;
 
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -13,9 +14,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.rlbpc.catalogo.dto.CategoryDTO;
 import com.rlbpc.catalogo.dto.ProductDTO;
+import com.rlbpc.catalogo.dto.UriDTO;
 import com.rlbpc.catalogo.entities.Category;
 import com.rlbpc.catalogo.entities.Product;
 import com.rlbpc.catalogo.repositories.CategoryRepository;
@@ -38,6 +41,8 @@ public class ProductService {
 	private ProductRepository repository;
 	@Autowired
 	private CategoryRepository categoryRepository;
+	@Autowired
+	private S3Service s3Service;
 	
 	
 	//A anotação Transactional garante que o método vai ser executado com uma transação do banco de dados e o método readOnly impede que o banco de dados seja travado para uma operação que é apenas de leitura
@@ -111,6 +116,11 @@ public class ProductService {
 			Category category = categoryRepository.getOne(catDto.getId());
 			entity.getCategories().add(category);
 		}
+	}
+
+	public UriDTO uploadFile(MultipartFile file) {
+		URL url = s3Service.uploadFile(file);
+		return new UriDTO(url.toString());
 	}
 
 }

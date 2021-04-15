@@ -28,6 +28,7 @@ const Form = () => {
     const [isLoadingCategories, setIsLoadingCategories] = useState(false);
     const [categories, setCategories] = useState<Category[]>([]);
     const [uploadedImgUrl, setUploadedImgUrl] = useState('');
+    const [productImgUrl, setProductImgUrl] = useState('');
     const isEditing = productId !== 'create';
     const formTitle = isEditing ? 'Editar produto' : 'Cadastrar um produto';
 
@@ -38,8 +39,8 @@ const Form = () => {
                     setValue('name', response.data.name);
                     setValue('price', response.data.price);
                     setValue('description', response.data.description);
-                    setValue('imgUrl', response.data.imgUrl);
                     setValue('categories', response.data.categories);
+                    setProductImgUrl(response.data.imgUrl);
                 })
         }
     }, [productId, isEditing, setValue]);
@@ -140,7 +141,10 @@ const Form = () => {
                     </div>
 
                     <div className="margin-bottom-30">
-                       <ImageUpload onUploadSuccess={onUploadSuccess}/>
+                       <ImageUpload 
+                            onUploadSuccess={onUploadSuccess}
+                            productImgUrl={productImgUrl} 
+                        />
                     </div>
                 </div>
 

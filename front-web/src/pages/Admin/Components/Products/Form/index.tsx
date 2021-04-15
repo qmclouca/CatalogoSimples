@@ -8,8 +8,9 @@ import { makePrivateRequest, makeRequest } from 'core/utils/request';
 import { useHistory, useParams } from 'react-router-dom';
 import { Category } from 'core/types/Products';
 import ImageUpload from '../ImageUpload';
+import DescriptionField from './DescriptionField';
 
-type FormState = {
+export type FormState = {
     name: string;
     price: string;
     description: string;
@@ -56,7 +57,7 @@ const Form = () => {
     const onSubmit = (data: FormState) => {
         const payload = {
             ...data,
-            imgUrl: uploadedImgUrl
+            imgUrl: uploadedImgUrl || productImgUrl
         }
 
         makePrivateRequest({
@@ -149,14 +150,7 @@ const Form = () => {
                 </div>
 
                 <div className="col-6">
-                    <textarea  
-                      ref={register({ required: "Campo obrigatório"})}
-                      name="description"
-                      className="form-control input-base-description"
-                      placeholder="Descrição"
-                      cols={30} 
-                      rows={10} 
-                    />
+                    <DescriptionField control = {control} />
                     {errors.description && (
                             <div className="invalid-feedback d-block">
                                 {errors.description.message}

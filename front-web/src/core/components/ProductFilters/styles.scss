@@ -40,3 +40,9 @@
         color: #E9E9E9;
     }
 }
+
+@media (max-width: 768px) {
+    .product-filters-container{
+        width: 100%;
+    }
+}

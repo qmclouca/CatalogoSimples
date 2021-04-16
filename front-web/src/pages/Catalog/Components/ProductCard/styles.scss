@@ -27,3 +27,9 @@
     width: 160px;
     height: 160px;
 }
+
+@media (max-width: 768 px) {
+    .product-card{
+        padding: 10px 10px 30px 10px;
+    }
+}

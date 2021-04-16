@@ -9,7 +9,6 @@ import ProductDescriptionLoader from '../Loaders/ProductDescriptionLoader';
 import ProductInfoLoader from '../Loaders/ProductInfoLoader';
 import './styles.scss';
 import { Editor } from 'react-draft-wysiwyg';
-import toolbar from './../../../Admin/Components/Products/Form/toolbar';
 import { stateFromHTML } from 'draft-js-import-html';
 import { EditorState } from 'draft-js';
 
@@ -38,23 +37,23 @@ const ProductDetails = () => {
                     <ArrowIcon className="icon-goback" />
                     <h1 className="text-goback">voltar</h1>
                 </Link>
-                <div className="row">
+                <div className="product-details-info">
                     <div className="col-6 pr-5">
-                        {isLoading ? <ProductInfoLoader /> : (
+                        {isLoading ? (<ProductInfoLoader /> ) : (
                             <>
                                 <div className="product-details-card text-center">
                                     <img src={product?.imgUrl} alt={product?.name} className="product-details-image" />
                                 </div>
-                                <h1 className="product-details-name">
-                                    {product?.name}
-                                </h1>
-                                {product?.price && <ProductPrice price={product?.price} />}
+                                <div className="products-info-fields">
+                                    <h1 className="product-details-name">{product?.name}</h1>
+                                    {product?.price && <ProductPrice price={product?.price} />}
+                                </div>
                             </>
                         )}
                     </div>
-                    <div className="col-6 product-details-card">
+                    <>
                         {isLoading ? <ProductDescriptionLoader /> : (
-                            <>
+                            <div className="product-info-fields">
                                 <h1 className="product-description-title">
                                     Descrição do produto
                                 </h1>
@@ -62,11 +61,11 @@ const ProductDetails = () => {
                                     editorClassName="product-description-text"
                                     editorState={descriptionAsEditorState}
                                     toolbarHidden
-                                    readOnly                                   
+                                    readOnly
                                 />
-                            </>
+                            </div>
                         )}
-                    </div>
+                    </>
                 </div>
             </div>
         </div>

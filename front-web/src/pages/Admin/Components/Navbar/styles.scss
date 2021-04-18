@@ -26,3 +26,33 @@
         color: #407BFF;
     }
 }
+
+@media (max-width: 768px) {
+    .admin-nav-container {
+        width: 90%;
+        padding-left: 50px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .admin-nav-container ul {
+        width: 90%;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .admin-nav-item {
+        width: 200px;
+        height: 60px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0px;
+        background: #F2F2F2 ;
+
+    }
+}

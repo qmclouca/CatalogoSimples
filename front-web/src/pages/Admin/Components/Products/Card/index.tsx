@@ -1,8 +1,8 @@
-import ProductPrice from 'core/components/ProductPrice';
 import React from 'react';
-import './styles.scss';
+import ProductPrice from 'core/components/ProductPrice';
 import { Product } from 'core/types/Products';
 import { Link } from 'react-router-dom';
+import './styles.scss';
 
 type Props = {
     product: Product;
@@ -12,9 +12,8 @@ type Props = {
 
 const Card = ({product, onRemove}:Props) => {
     return (
-        <div className = "card-base product-card-admin">
-            <div className="row">
-                <div className = "col-2 text-center border-right py-3">
+        <div className = "card-base product-card-admin">            
+                <div className = "text-center border-right py-3">
                     <img 
                     src = {product.imgUrl}
                     alt = {product.name}
@@ -22,7 +21,7 @@ const Card = ({product, onRemove}:Props) => {
                 />
                 </div>
                 <div className = "col-7 py-3">
-                    <h3 className = "product-card-name-admin">
+                    <h3 className = "card-content product-card-name-admin">
                         {product.name}
                     </h3>
                     <ProductPrice price={product.price}/> 
@@ -54,8 +53,7 @@ const Card = ({product, onRemove}:Props) => {
                             EXCLUIR
                     </button>  
                 </div>
-            </div>
-        </div>
+            </div>        
     )    
 }
 

@@ -2,16 +2,16 @@
     display: flex;
 }
 .admin-content {
-    padding-left: 40px;
-    padding-top: 25px;
-    padding-bottom: 45px;
-    padding-right: 40px;
+    padding: 25px 40px 45px 40px;
     flex: 1;
 }
 
 .admin-list-container{
-    margin-top: 45px;
-    margin-bottom: 45px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 45px 0;
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
 }

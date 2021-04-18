@@ -7,6 +7,7 @@ import Card from '../Card';
 import { toast } from 'react-toastify';
 import CardLoader from './../Loaders/ProductCardLoaders';
 import ProductFilters from 'core/components/ProductFilters';
+import './styles.scss';
 
 const List = () => {
     const [productsResponse, setProductsResponse] = useState<ProductsResponse>();
@@ -76,7 +77,7 @@ const List = () => {
 
     return (
         <div className="admin-products-list">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between filter-mobile">
                 <button className="btn btn-primary btn-lg" onClick={handleCreate}>
                     ADICIONAR
                 </button>

@@ -38,6 +38,19 @@
         width: 200px;
         height: 200px;
     }
+}
 
+@media (max-width: 768px){
+    .upload-button-container label {
+        word-wrap: none;
+        width: 135px;
+    }
+    .uploaded-image {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    .upload-progress-container {
+        max-width: 150px;
+    }
 }
 

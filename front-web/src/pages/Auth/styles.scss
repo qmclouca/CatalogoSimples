@@ -2,7 +2,7 @@
     display: flex;
     padding: 40px 40px 100px 0px;
     justify-content: center;
-    background: url(~core/assets/images/auth-background.svg) no-repeat;
+    background: url(~core/assets/images/auth-background.svg) no-repeat bottom;
     background-size: 100%;
 }
 .auth-info-title{
@@ -20,4 +20,10 @@
     line-height: 33px;
     letter-spacing: -0.015em;
     color:#9E9E9E;
+}
+
+@media (max-width: 768px) {
+    .auth-info{
+        display: none;
+    }
 }

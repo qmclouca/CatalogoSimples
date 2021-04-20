@@ -27,3 +27,11 @@
         display: none;
     }
 }
+
+@media (max-width: 576px) {
+    .auth-container{
+        margin: 0;
+        padding: 40px 0px 0px 0px;
+        
+    }
+}

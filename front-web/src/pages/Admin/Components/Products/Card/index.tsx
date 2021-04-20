@@ -20,8 +20,8 @@ const Card = ({product, onRemove}:Props) => {
                     className = "product-card-image-admin"    
                 />
                 </div>
-                <div className = "col-7 py-3">
-                    <h3 className = "card-content product-card-name-admin">
+                <div className = "card-content">
+                    <h3 className = "product-card-name-admin">
                         {product.name}
                     </h3>
                     <ProductPrice price={product.price}/> 
@@ -37,17 +37,17 @@ const Card = ({product, onRemove}:Props) => {
                         </span>
                     </div>
                 </div>
-                <div className = "col-3 pt-3 pr-5">
+                <div className = "buttons-container">
                     <Link 
                         to = {`/admin/products/${product.id}`}
                         type="button" 
-                        className="btn btn-outline-secondary btn-block border-radius-10 mb-3"
+                        className="btn btn-outline-secondary btn-block border-radius-10 btn-product"
                         >
                             EDITAR
                     </Link>
                     <button 
                         type="button" 
-                        className="btn btn-outline-danger btn-block border-radius-10 mb-3"
+                        className="btn btn-outline-danger btn-block border-radius-10 btn-product"
                         onClick = {()=> onRemove(product.id)}
                         >
                             EXCLUIR

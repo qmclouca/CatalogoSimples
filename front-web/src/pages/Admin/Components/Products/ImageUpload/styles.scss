@@ -53,4 +53,27 @@
         max-width: 150px;
     }
 }
+@media (max-width: 576px) {
+    .upload-button-container label {
+        width: 250px;
+    }
+    small {
+        display: none;
+    }
+    .upload-placeholder {
+        width: 100vw !important;
+        margin-left: 40px;
+   
+        .uploaded-image {
+            align-self: center;
+        }
+        .upload-progress {
+            margin-left: 20px;
+        }
+        .upload-progress-container {
+            margin-left: 20px;
+        }   
+    }
+}
+
 

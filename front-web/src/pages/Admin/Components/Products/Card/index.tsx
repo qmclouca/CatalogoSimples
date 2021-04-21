@@ -13,7 +13,7 @@ type Props = {
 const Card = ({product, onRemove}:Props) => {
     return (
         <div className = "card-base product-card-admin">            
-                <div className = "text-center border-right py-3">
+                <div className = "text-center border-right py-3 border-img">
                     <img 
                     src = {product.imgUrl}
                     alt = {product.name}

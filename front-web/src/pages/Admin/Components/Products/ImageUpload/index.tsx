@@ -69,7 +69,7 @@ const ImageUpload = ({onUploadSuccess, productImgUrl}: Props) => {
                     As imagens devem ser JPG ou PNG e não devem ultrapassar <strong>5 MB</strong>.
                 </small>
             </div>
-            <div className="col-6 upload-placeholder">
+            <div className="upload-placeholder">
                 {uploadProgress > 0 && (
                     <>
                         <UploadPlaceholder/>

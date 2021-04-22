@@ -57,8 +57,20 @@
 }
 
 @media (max-width: 576px) {
+    .admin-nav-container {
+        width: 95% !important;
+        
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+    
     .admin-nav-item {
-        width: 190px;
+        font-size: small;
+        justify-content: center;
+        background: #f2f2f2;
+        align-items: center;
+        width: 120px;
         height: 50px;
     }
  }

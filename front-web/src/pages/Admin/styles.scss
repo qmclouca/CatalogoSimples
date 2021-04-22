@@ -15,3 +15,8 @@
         flex-direction: column;
     }
 }
+@media (max-width: 576px) {
+    .admin-container {
+        flex-direction: column;
+    }
+}

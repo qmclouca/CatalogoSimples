@@ -158,7 +158,7 @@ const Form = () => {
                     </div>
                 </div>
 
-                <div className="col-6">
+                <div className="description-field">
                     <DescriptionField control = {control} />
                     {errors.description && (
                             <div className="invalid-feedback d-block">

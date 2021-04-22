@@ -1,8 +1,19 @@
 @media (max-width: 768px) {
-    .filter-mobile{        
+    .filter-mobile{ 
+        display: flex;
+        flex-direction: row;      
         max-width: 100%;
     }
 }
 @media (max-width: 576px){
+    .filter-mobile{ 
+        display: flex;
+        flex: 1;
+        flex-direction:column;      
+        max-width: 100%;
+    }
+    .btn-filter-mobile{
+        margin-bottom: 20px;
+    }
     
 }
